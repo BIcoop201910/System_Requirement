@@ -1,0 +1,171 @@
+
+Jay Liu’s Course
+Upgrade Co-op Project
+(201910)
+
+SQL Server Business Intelligence
+(SQL Server BI)
+
+System Requirements
+
+v1.0
+2019-11-15
+
+Supported by
+Data Tech Consulting Services
+http://www.datatechservice.com
+
+ 
+Table of Contents
+Change History	3
+1.	Project Overview	4
+2.	Enhancement Summary	4
+2.1.	Data Quantity (C1)	4
+2.2.	Data Age (C1)	4
+2.3.	New Virtual Machines (C1, C2, C8)	5
+2.4.	Simplified SSIS Design and Development (C2, C3, C4)	5
+2.5.	Add Charts in Reports (C5, C6)	6
+2.6.	Dynamic Refresh Reporting (new, C6 or C9)	6
+2.7.	Multi-selection for SSRS Report Parameters (C5, C6)	6
+2.8.	Drill-down Reports (C5, C6)	6
+2.9.	Add Drill-through Reports (C5, C6)	6
+2.10.	Upgrade and Migration (C8)	6
+2.11.	Enhancement (C9, C10)	7
+2.12.	Web-application Configuration using SSRS Report (C9, optional)	7
+2.13.	Rebuild All Technical Documents (PPT)	7
+3.	Project Timeline	7
+4.	Offerings & Constraints	8
+
+ 
+
+Change History
+Date	Version	Author	Reason for Change
+2019-10-13	0.1	Jay L.	Initial Draft
+2019-10-16	0.2	Jay L.	Added details for some sections (2.6, 2.8, 2.9)
+2019-10-29	0.3	Jay L.	Details added (2.2, 2.5, 2.10)
+2019-11-14	0.4	Jay L.	Added/edited 2.3, 2.6
+2019-11-15	1.0	Jay L.	Formatting & Finalized version 1
+
+ 
+
+1.	Project Overview
+This project is designed to perform the upgrade of some major technologies used to 
+  support the course for Jay Liu at Victoria Training Center, and this document describes the detailed work items required 
+    for this technology upgrade.
+    
+This requirement document is to request working on the following technology enhancement or migration, 
+  to modernize, optimize, and consolidate the existing version of the course, SQL Server Business Intelligence (SQL Server BI).
+   With the project completion, the enhanced features running on the upgraded system design will offer a better designed, 
+      documented, improved, and standardized environment, which supports a new look of the technologies the course runs on, 
+      and offer a nicely-looking infrastructure of the new version of the course.
+
+===================================
+
+2.	Enhancement Summary
+The following list contains all required tasks, portions, technologies, and framework to support 
+  and offer a new look of the corresponding course.
+  
+2.1.	Data Quantity (C1)
+Currently the course only uses a small set of sample data with 1,200,000 rows. In the new version after this upgrade, 
+  we will offer 10,000,000 (10M) level of rows as the dataset to show the 360-degree of data manipulation and processing.
+  A simulation of the data to make up such level of amount of data would be considered.
+  
+2.2.	Data Age (C1)
+The new version will show the most recent 20 years of data, but counting back from the current year, back to 20 years from now, 
+meaning the newly designed course should show the most up-to-date data. During the simulation as enlarging the data amount, 
+this should be also handled.
+
+2.3.	New Virtual Machines (C1, C2, C8)
+This project requires starting the entire project from SQL2016 (running on Windows 2012 server), 
+the VM offered to the project download folder includes:
+-	Windows Server 2012 R2
+-	SQL Server 2016 (3 instances, OLTP, OLAP, DW)
+-	SQL Server 2016 BI Installation package (on server)
+-	MS Office Suite
+On top of that, this upgraded version will introduce SQL Server 2017 running on Windows Server 2012 R2, so at Phase 8 (Class 8),
+a new VM will be introduced, with running SQL Server 2017 instances on Windows server 2012 R2, 
+and then the rest of project (C9, C10) will be to upgrade/migrate the whole environment on SQL Server 2017, 
+including SQL Server 2017 BI components setup and configuration, plus enhancement from the old/existing SQL 2016 environment. 
+So the new (2nd) VM for SQL 2017 will include:
+-	Windows Server 2012 R2
+-	SQL Server 2017 (3 instances, OLTP, OLAP, DW)
+-	SQL Server 2017 BI Installation package (on server)
+-	MS Office Suite
+
+2.4.	Simplified SSIS Design and Development (C2, C3, C4)
+After developing SSIS, remove the existing version of cloning and simulating multiple sites by creating multiple SSIS packages.
+Instead we will use one package to deal with multiple sites, by passing in parameters to control the data sources inside the packages.
+ 
+
+2.5.	Add Charts in Reports (C5, C6)
+Add demo to display Charts in SSRS reports, may need to design and develop more corresponding reports for this purposes.
+
+2.6.	Dynamic Refresh Reporting (new, C6 or C9)
+A new requirement to enhance the report from the business user is to allow the report to be auto-refresh,
+based on an interval (say every 5 seconds) to let the report become an actual real-time report.
+
+2.7.	Multi-selection for SSRS Report Parameters (C5, C6)
+Add handling to manage selecting multiple values for SSRS reports.
+
+2.8.	Drill-down Reports (C5, C6)
+Add drill-down feature for grouping inside the report, so groups on reports can be drill-down and drill-up (expand and collapse).
+
+2.9.	Add Drill-through Reports (C5, C6)
+If possible, design a summary-detail reporting methodology, 
+to show summarized (top) report with grouping and statistics of high-level data first, 
+and then allowing users to deep-dive into the next level of detailed report(s), 
+a two-level drill-through (three-level) reports would be ideal.
+
+2.10.	Upgrade and Migration (C8)
+Implement upgrade and migration from SQL 2016 BI into SQL 2017 BI, design steps and process of the migration. 
+Refer existing version of module 10 (class 10) would be helpful.
+ 
+
+2.11.	Enhancement (C9, C10)
+Develop centralized configuration table to drive SSIS package running and SSRS report delivery.
+
+2.12.	Web-application Configuration using SSRS Report (C9, optional)
+For 2.10 above, build a configuration tool using SSRS report, to allow authorized users to perform the configuration via the report. 
+Ignore the permission controls when designing and developing the tool, 
+as it can be managed by assigning access to the report or folder holding the report.
+
+2.13.	Rebuild All Technical Documents (PPT)
+As the running environment will be migrated to VM based, so all non-change document PPT files will be rerun and recaptured.
+
+=========================================
+
+3.	Project Timeline
+The project runs with the following scheduled tasks vs time durations, as the step-by-step plan below.
+Week 1: Team build-up, Groups setup, and Group Lead of each group
+Required image download ready – Project started
+Week 2: Finalizing Groups, and determining Group Leads
+System Requirements drafted – 5% completed
+Week 3: System Requirements submitted – 10% completed
+Week 4: System Design (1) – 15% completed
+Week 5: System Design (2), completed and submitted - 20% completed
+Week 6: Development starts - 30% completed
+Week 7: Development in progress, 40% completed
+Week 8: Development in progress, 50% completed
+Week 9: Development in progress, 60% completed
+Week 10: Development in progress, 70% completed
+Week 11: Development in progress, 80% completed
+Week 12: Development in progress, 90% completed
+Week 13: Final review, testing and documentation, 95% completed
+Week 14: Completed work submission, 100% completed
+Final Meeting: Project Closing
+
+=====================================
+
+4.	Offerings & Constraints
+-	Data Tech Consulting Services Inc. (DataTech) is the vendor cooperating and coordinating the projects, 
+    and as the end of the projects, DataTech offers reference check for all co-op project resources.
+-	All participating resources must finish all their tasks with their groups from the beginning until the end, 
+    and when and only when your name appears in the last version of the registry list at the project closing time, 
+    DataTech will then offer the reference service.
+-	You can ask for a short leave for vacation or any other reasons, by telling your group lead or members, 
+    and they are fine to cover you, or wait for your availability for catching up the progress designed by your group.
+-	With absence up to THREE times of unavailability when reporting your status update, 
+    you are still eligible to continue your projects, but after THREE times of missing status update, 
+    you will automatically be removed from the projects for the current round. Of course, 
+    you are still allowed to come back for the future rounds of projects.
+
